@@ -3,6 +3,7 @@ import './App.css';
 import DisplayTelegram from './components/display-telega/DisplayTelegtam';
 import {v1} from 'uuid';
 import PriorityList from './components/priority-list/PriorityList';
+import Lesson3 from './components/lesson-3/Lesson3';
 
 //TS
 export type priorityListType = {
@@ -27,17 +28,17 @@ function App() {
     //filtered
     let filteredState = state;
 
-    if(filter === 'hight'){
+    if (filter === 'hight') {
         filteredState = filteredState.filter(list => list.priority === 'hight');
     }
-    if(filter === 'middle'){
+    if (filter === 'middle') {
         filteredState = filteredState.filter(list => list.priority === 'middle');
     }
-    if(filter === 'low'){
+    if (filter === 'low') {
         filteredState = filteredState.filter(list => list.priority === 'low');
     }
     //changr filter
-    const changeFilter = (value:filterType) => {
+    const changeFilter = (value: filterType) => {
         setFilter(value);
     }
 
@@ -49,9 +50,10 @@ function App() {
     return (
         <div className="App">
             <DisplayTelegram fullName={'Александр Горячко'}
-                             text={'Lorem ipsum dolor sit amet, consecteturuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu adipisicing elit. Accusantium alias aliquam aperiam architecto aspernatur at autem commodi consequuntur culpa cumque dolorem, dolores eius est eveniet exercitationem fuga, magni natus neque, nisi non nostrum omnis pariatur placeat praesentium quam quia quod rem reprehenderit rerum sequi similique sint vitae voluptate! At, deleniti!'}
+                             text={'Lorem ipsum dolor sit amet, consecteturuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu adipisicing elit. '}
                              addedTime={'16:47'}/>
             <PriorityList state={filteredState} deleteItem={deleteItem} changeFilter={changeFilter}/>
+            <Lesson3/>
         </div>
     );
 }

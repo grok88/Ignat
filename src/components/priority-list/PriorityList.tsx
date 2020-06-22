@@ -8,7 +8,7 @@ type PriorityListPropsType = {
 }
 
 const PriorityList = (props: PriorityListPropsType) => {
-    let {state, deleteItem,changeFilter} = props;
+    let {state, deleteItem, changeFilter} = props;
     const onChangeAllFilter = () => {
         changeFilter('all');
     }
