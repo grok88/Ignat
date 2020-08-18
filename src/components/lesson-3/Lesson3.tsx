@@ -1,5 +1,7 @@
 import React, {useState, ChangeEvent, KeyboardEvent} from 'react';
 import {v1} from 'uuid';
+import {MyButton} from '../../common/button/MyButton';
+import { MyInput } from '../../common/input/MyInput';
 
 const Lesson3 = () => {
     let arr = [];
@@ -7,8 +9,12 @@ const Lesson3 = () => {
     let [value, setValue] = useState<string>('');
 
 
-    const onChangeValue = (e: ChangeEvent<HTMLInputElement>) => {
-        const value = e.currentTarget.value;
+    // const onChangeValue = (e: ChangeEvent<HTMLInputElement>) => {
+    //     const value = e.currentTarget.value;
+    //     setValue(value);
+    // }
+
+    const onChangeValue = (value: string) => {
         setValue(value);
     }
     const sayName = () => {
@@ -23,8 +29,8 @@ const Lesson3 = () => {
         arr.push(newItem);
         setCount(count => count + 1);
     }
-    const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
-        if (e.charCode === 13) {
+    const onKeyPressHandler = (keyNumber: number) => {
+        if (keyNumber === 13) {
             sayName();
         }
     }
@@ -32,10 +38,14 @@ const Lesson3 = () => {
         <div>
             <h2>Lesson3</h2>
             <div>
-                <input type="text" value={value} onChange={onChangeValue} onKeyPress={onKeyPressHandler}/>
+                {/*<input type="text" value={value} onChange={onChangeValue} onKeyPress={onKeyPressHandler}/>*/}
+                <form action="">
+                    <MyInput value={value} onChange={onChangeValue} onKeyPress={onKeyPressHandler} />
+                </form>
             </div>
             <div>
-                <button onClick={sayName}>Button</button>
+                <MyButton type={'default'} title={'Click me'} onClickHandler={sayName}/>
+                {/*<button onClick={sayName}>Button</button>*/}
             </div>
             <div>
                 <span>count name - {count}</span>

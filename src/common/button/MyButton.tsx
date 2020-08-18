@@ -6,7 +6,7 @@ type ButtonPropsType = {
     onClickHandler: () => void;
     type:'default' | 'red';
 }
-export const Button = (props: ButtonPropsType) => {
+export const MyButton = (props: ButtonPropsType) => {
     const {title, onClickHandler, type} = props;
     
     return (

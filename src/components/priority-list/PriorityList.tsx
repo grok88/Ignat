@@ -1,6 +1,6 @@
 import React from 'react';
 import {priorityListType, filterType} from '../../App';
-import { Button } from '../../common/button/Button';
+import { MyButton } from '../../common/button/MyButton';
 
 type PriorityListPropsType = {
     state: Array<priorityListType>,
@@ -30,7 +30,7 @@ const PriorityList = (props: PriorityListPropsType) => {
                     state.map(list => {
                         return <li key={list.id}>
                             {list.title}
-                            <Button title={'x'} type={'red'}
+                            <MyButton title={'x'} type={'red'}
                                     onClickHandler={() => {
                                 deleteItem(list.id)
                             }}/>
@@ -47,10 +47,10 @@ const PriorityList = (props: PriorityListPropsType) => {
                 {/*<button onClick={onChangeHightFilter}>Hight</button>*/}
                 {/*<button onClick={onChangeMiddleFilter}>Middle</button>*/}
                 {/*<button onClick={onChangeLowFilter}>Low</button>*/}
-                <Button type={'default'} title={'All'} onClickHandler={onChangeAllFilter}/>
-                <Button type={'default'} title={'Hight'} onClickHandler={onChangeHightFilter}/>
-                <Button type={'default'} title={'Middle'} onClickHandler={onChangeMiddleFilter}/>
-                <Button type={'default'} title={'Low'} onClickHandler={onChangeLowFilter}/>
+                <MyButton type={'default'} title={'All'} onClickHandler={onChangeAllFilter}/>
+                <MyButton type={'default'} title={'Hight'} onClickHandler={onChangeHightFilter}/>
+                <MyButton type={'default'} title={'Middle'} onClickHandler={onChangeMiddleFilter}/>
+                <MyButton type={'default'} title={'Low'} onClickHandler={onChangeLowFilter}/>
             </div>
         </div>
     );
