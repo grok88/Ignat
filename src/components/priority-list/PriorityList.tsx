@@ -1,5 +1,6 @@
 import React from 'react';
 import {priorityListType, filterType} from '../../App';
+import { Button } from '../../common/button/Button';
 
 type PriorityListPropsType = {
     state: Array<priorityListType>,
@@ -29,19 +30,27 @@ const PriorityList = (props: PriorityListPropsType) => {
                     state.map(list => {
                         return <li key={list.id}>
                             {list.title}
-                            <button onClick={() => {
+                            <Button title={'x'} type={'red'}
+                                    onClickHandler={() => {
                                 deleteItem(list.id)
-                            }}>x
-                            </button>
+                            }}/>
+                            {/*<button  onClick={() => {*/}
+                            {/*    deleteItem(list.id)*/}
+                            {/*}}>delete*/}
+                            {/*</button>*/}
                         </li>
                     })
                 }
             </ul>
             <div>
-                <button onClick={onChangeAllFilter}>All</button>
-                <button onClick={onChangeHightFilter}>Hight</button>
-                <button onClick={onChangeMiddleFilter}>Middle</button>
-                <button onClick={onChangeLowFilter}>Low</button>
+                {/*<button onClick={onChangeAllFilter}>All</button>*/}
+                {/*<button onClick={onChangeHightFilter}>Hight</button>*/}
+                {/*<button onClick={onChangeMiddleFilter}>Middle</button>*/}
+                {/*<button onClick={onChangeLowFilter}>Low</button>*/}
+                <Button type={'default'} title={'All'} onClickHandler={onChangeAllFilter}/>
+                <Button type={'default'} title={'Hight'} onClickHandler={onChangeHightFilter}/>
+                <Button type={'default'} title={'Middle'} onClickHandler={onChangeMiddleFilter}/>
+                <Button type={'default'} title={'Low'} onClickHandler={onChangeLowFilter}/>
             </div>
         </div>
     );
