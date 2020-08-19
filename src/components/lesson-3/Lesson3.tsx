@@ -38,10 +38,7 @@ const Lesson3 = () => {
         <div>
             <h2>Lesson3</h2>
             <div>
-                {/*<input type="text" value={value} onChange={onChangeValue} onKeyPress={onKeyPressHandler}/>*/}
-                <form action="">
                     <MyInput value={value} onChange={onChangeValue} onKeyPress={onKeyPressHandler} />
-                </form>
             </div>
             <div>
                 <MyButton type={'default'} title={'Click me'} onClickHandler={sayName}/>

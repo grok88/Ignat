@@ -9,7 +9,7 @@
     /*margin-bottom: 45px;*/
 }
 
-input {
+.group > input {
     font-family: 'Roboto';
     font-size: 18px;
     padding: 10px 10px 10px 5px;
@@ -19,12 +19,12 @@ input {
     border-bottom: 1px solid #757575;
 }
 
-input:focus {
+.group > input:focus {
     outline: none;
 }
 
 /* LABEL ======================================= */
-label {
+.label {
     color: #999;
     font-size: 18px;
     font-weight: normal;
@@ -37,18 +37,19 @@ label {
     -webkit-transition: 0.2s ease all;
 }
 
-input.error ~ label {
-    color:red;
+.group > input.error ~ .label {
+    color: red;
 }
 
- /*active state */
-input:focus ~ label, input:valid ~ label  {
+/*active state */
+.group > input:focus ~ .label, .group > input:valid ~ .label {
     top: -20px;
     font-size: 14px;
     color: #5264AE;
 }
-input.error:focus ~ label{
-    color:red;
+
+.group > input.error:focus ~ .label {
+    color: red;
 }
 
 
@@ -80,7 +81,7 @@ input.error:focus ~ label{
 }
 
 /* active state */
-input:focus ~ .bar:before, input:focus ~ .bar:after {
+.group > input:focus ~ .bar:before, .group > input:focus ~ .bar:after {
     width: 50%;
 }
 
@@ -96,7 +97,7 @@ input:focus ~ .bar:before, input:focus ~ .bar:after {
 }
 
 /* active state */
-input:focus ~ .highlight {
+.group > input:focus ~ .highlight {
     -webkit-animation: inputHighlighter 0.3s ease;
     -moz-animation: inputHighlighter 0.3s ease;
     animation: inputHighlighter 0.3s ease;

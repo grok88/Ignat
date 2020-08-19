@@ -4,6 +4,7 @@ import DisplayTelegram from './components/display-telega/DisplayTelegtam';
 import {v1} from 'uuid';
 import PriorityList from './components/priority-list/PriorityList';
 import Lesson3 from './components/lesson-3/Lesson3';
+import {AllCustomComponent} from './components/lesson4/AllCustomComponent';
 
 //TS
 export type priorityListType = {
@@ -54,6 +55,7 @@ function App() {
                              addedTime={'16:47'}/>
             <PriorityList state={filteredState} deleteItem={deleteItem} changeFilter={changeFilter}/>
             <Lesson3/>
+            <AllCustomComponent/>
         </div>
     );
 }

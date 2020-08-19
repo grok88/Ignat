@@ -34,19 +34,11 @@ const PriorityList = (props: PriorityListPropsType) => {
                                     onClickHandler={() => {
                                 deleteItem(list.id)
                             }}/>
-                            {/*<button  onClick={() => {*/}
-                            {/*    deleteItem(list.id)*/}
-                            {/*}}>delete*/}
-                            {/*</button>*/}
                         </li>
                     })
                 }
             </ul>
             <div>
-                {/*<button onClick={onChangeAllFilter}>All</button>*/}
-                {/*<button onClick={onChangeHightFilter}>Hight</button>*/}
-                {/*<button onClick={onChangeMiddleFilter}>Middle</button>*/}
-                {/*<button onClick={onChangeLowFilter}>Low</button>*/}
                 <MyButton type={'default'} title={'All'} onClickHandler={onChangeAllFilter}/>
                 <MyButton type={'default'} title={'Hight'} onClickHandler={onChangeHightFilter}/>
                 <MyButton type={'default'} title={'Middle'} onClickHandler={onChangeMiddleFilter}/>
