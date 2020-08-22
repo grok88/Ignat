@@ -11,6 +11,7 @@ import {PreJunior} from './components/preJunior/PreJunior';
 import {Junior} from './components/Junior/Junior';
 import {JuniorHard} from './components/Junior+/Junior+';
 import {Main} from './components/main/Main';
+import {Navbar} from './components/navbar/Navbar';
 
 //TS
 export type priorityListType = {
@@ -23,14 +24,17 @@ export type filterType = 'all' | 'hight' | 'middle' | 'low';
 
 function App() {
     return (
-        <div className={styles.app}>
-            <HashRouter>
-                <Route exact path={'/'} render={() => <Main/>}/>
-                <Route path={'/prejunior'} render={() => <PreJunior/>}/>
-                <Route path={'/junior'} render={() => <Junior/>}/>
-                <Route path={'/junior+'} render={() => <JuniorHard/>}/>
-            </HashRouter>
-        </div>
+        <HashRouter>
+            <Navbar/>
+            <main role="main">
+                <div className={styles.app}>
+                    {/*<Route exact path={'/'} render={() => <Main/>}/>*/}
+                    <Route path={'/prejunior'} render={() => <PreJunior/>}/>
+                    <Route path={'/junior'} render={() => <Junior/>}/>
+                    <Route path={'/junior+'} render={() => <JuniorHard/>}/>
+                </div>
+            </main>
+        </HashRouter>
     );
 }
 
