@@ -46,7 +46,6 @@ export const AllCustomComponent = () => {
             <div>
                 <h3>My checkbox</h3>
                     <MyCheckBox check={check} onChange={setCheckValue} customLabel={'check1'}/>
-
             </div>
 
         </div>
