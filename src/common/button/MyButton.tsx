@@ -10,6 +10,7 @@ export const MyButton = (props: ButtonPropsType) => {
     const {title, onClickHandler, type} = props;
     
     return (
-            <button className={type === 'default' ? styles.default :  styles.red} onClick={onClickHandler}>{title}</button>
+            // <button className={type === 'default' ? styles.default :  styles.red} onClick={onClickHandler}>{title}</button>
+            <button className={styles[type]} onClick={onClickHandler}>{title}</button>
     );
 }

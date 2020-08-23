@@ -33,9 +33,7 @@ export const AllCustomComponent = () => {
             <h2>Lesson4</h2>
             <div>
                 <h3>My input</h3>
-                <form action="">
                     <MyInput value={value} onChange={onChangeValue} onKeyPress={onKeyPressHandler}/>
-                </form>
             </div>
             <div>
                 <h3>My button</h3>
