@@ -18,7 +18,12 @@ export const EditableSpan = (props: EditableSpanPropsType) => {
     const onKeyPressHandler = (charcode: number) => {
         console.log(charcode);
         if (charcode === 13) {
-            setEditMode(false);
+            if (value) {
+                setEditMode(false);
+            } else {
+                alert('Empty string');
+            }
+
         }
     }
     return (
