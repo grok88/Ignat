@@ -1,10 +1,12 @@
-import React, {useState} from 'react';
+import React, {useState, useReducer} from 'react';
 import styles from './Junior.module.css'
 import {EditableSpan} from '../../common/editableSpan/EditableSpan';
 import {saveState, restoreState} from '../../settings/localStorage/localStorage';
 import {MyButton} from '../../common/button/MyButton';
 import {Select} from '../../common/select/Select';
 import {Radio, RadioItemType} from '../../common/radio/Radio';
+import {hwReducer, sort, check} from '../../redux/homeWorkReducer';
+import {Lesson8} from '../lesson8/lesson8';
 
 export const Junior = () => {
 
@@ -61,6 +63,21 @@ export const Junior = () => {
     const onChangeChecked = (value: string) => {
         setCheckedValue(value);
     }
+    //lesson8
+    let [people, dispatchToPeople] = useReducer(hwReducer, [
+        {name: 'Alex', age: 32, id: '1'},
+        {name: 'Sveta', age: 18, id: '2'},
+        {name: 'Igor', age: 15, id: '3'},
+        {name: 'Boris', age: 18, id: '4'},
+        {name: 'Tanya', age: 35, id: '5'},
+    ]);
+
+    const sortArray = (payload: 'up' | 'down') => {
+        dispatchToPeople(sort(payload));
+    }
+    const sortByAge = (age: number) => {
+        dispatchToPeople(check(age));
+    }
     return (
         <div className={styles.JuniorBlock}>
             <h2>Junior</h2>
@@ -83,6 +100,10 @@ export const Junior = () => {
                     <Select onChange={onChangeSelect} items={items} value={selectValue}/>
                     <h2>Lesson 7 - Radio</h2>
                     <Radio name={'car'} items={radioItems} value={CheckedValue} onChange={onChangeChecked}/>
+                </div>
+                <div className={styles.less8}>
+                    <h2>Lesson 8</h2>
+                    <Lesson8 items={people} sort={sortArray} sortByAge={sortByAge}/>
                 </div>
             </div>
         </div>
