@@ -1,0 +1,51 @@
+.AppClock {
+    position: relative;
+    /*outline: 1px solid black;*/
+    width: 310px;
+}
+
+.AppClockTime {
+    width: 240px;
+    border: 2px solid red;
+    border-radius: 5px;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+}
+
+.eav_Date {
+    float: right;
+    padding: 0px;
+    /*background: url("button3.png") no-repeat;*/
+    background: gold;
+    margin: 4px;
+    height: 81px;
+    text-align: center;
+    color: #fff;
+    width: 52px;
+    border-radius: 5px;
+}
+
+.eav_Date div {
+    font-family: 'Verdana';
+    line-height: 9px;
+}
+
+.eav_Date .d {
+    font-size: 19px;
+    line-height: 18px;
+    letter-spacing: -1px;
+    padding-top: 7px;
+    font-family: 'Arial';
+}
+
+.eav_Date .m {
+    padding-top: 10px;
+    font-size: 16px;
+    text-transform: lowercase;
+}
+
+.eav_Date .y {
+    padding-top: 17px;
+    font-weight: normal;
+}

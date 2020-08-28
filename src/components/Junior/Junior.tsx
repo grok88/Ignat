@@ -7,6 +7,7 @@ import {Select} from '../../common/select/Select';
 import {Radio, RadioItemType} from '../../common/radio/Radio';
 import {hwReducer, sort, check} from '../../redux/homeWorkReducer';
 import {Lesson8} from '../lesson8/lesson8';
+import {MyTime} from '../time/MyTime';
 
 export const Junior = () => {
 
@@ -31,7 +32,7 @@ export const Junior = () => {
 
     //less 7
     //select
-    const [selectValue, setSelectValue] = useState<string>("Jora");
+    const [selectValue, setSelectValue] = useState<string>("Alex");
     const items = [
         "Alex",
         "Gor",
@@ -78,6 +79,8 @@ export const Junior = () => {
     const sortByAge = (age: number) => {
         dispatchToPeople(check(age));
     }
+    //9
+
     return (
         <div className={styles.JuniorBlock}>
             <h2>Junior</h2>
@@ -104,6 +107,11 @@ export const Junior = () => {
                 <div className={styles.less8}>
                     <h2>Lesson 8</h2>
                     <Lesson8 items={people} sort={sortArray} sortByAge={sortByAge}/>
+                </div>
+                <div className={styles.less9}>
+                    <h2>Lesson 9 - TIME</h2>
+                    {/*{now.toLocaleString("ru", options)}*/}
+                    <MyTime/>
                 </div>
             </div>
         </div>
