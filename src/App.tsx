@@ -16,6 +16,7 @@ export type stateType = Array<priorityListType>;
 export type filterType = 'all' | 'hight' | 'middle' | 'low';
 
 function App() {
+
     return (
         <HashRouter>
             <Navbar/>

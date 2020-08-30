@@ -8,8 +8,17 @@ import {Radio, RadioItemType} from '../../common/radio/Radio';
 import {hwReducer, sort, check} from '../../redux/homeWorkReducer';
 import {Lesson8} from '../lesson8/lesson8';
 import {MyTime} from '../time/MyTime';
+import {useDispatch, useSelector} from 'react-redux';
+import {AppRootStateType} from '../../redux/store';
+import {InitialStateType, setLoading} from '../../redux/loadingReducer';
+import Preloader from '../../assets/preloader/Preloader';
 
 export const Junior = () => {
+
+    //redux
+    const dispatch = useDispatch();
+    const loader = useSelector<AppRootStateType, InitialStateType>(state => state.loading);
+    console.log(loader.loading)
 
     //less6 - editableSpan
     const [valueES, setValueES] = useState<string>('Lesson 6 editableSpam');
@@ -79,8 +88,16 @@ export const Junior = () => {
     const sortByAge = (age: number) => {
         dispatchToPeople(check(age));
     }
-    //9
-
+    //10
+    const toggleLoader = () => {
+        dispatch(setLoading(true));
+        setTimeout(() => {
+            dispatch(setLoading(false))
+        }, 3000)
+    }
+    if (loader.loading) {
+        return <Preloader/>
+    }
     return (
         <div className={styles.JuniorBlock}>
             <h2>Junior</h2>
@@ -112,6 +129,10 @@ export const Junior = () => {
                     <h2>Lesson 9 - TIME</h2>
                     {/*{now.toLocaleString("ru", options)}*/}
                     <MyTime/>
+                </div>
+                <div className={styles.less10}>
+                    <h2>Lesson 10 - PRELOADER</h2>
+                    <MyButton title={'Change Loader'} type={'default'} onClickHandler={toggleLoader}/>
                 </div>
             </div>
         </div>
