@@ -13,6 +13,7 @@ import {AppRootStateType} from '../../redux/store';
 import {InitialStateType, setLoading} from '../../redux/loadingReducer';
 import Preloader from '../../assets/preloader/Preloader';
 import {Range} from '../../common/range/Range';
+import {DoubleRange} from './../../common/doubleRange/DoubleRange'
 
 export const Junior = () => {
 
@@ -148,6 +149,8 @@ export const Junior = () => {
                     <h2>Lesson 11 - Range</h2>
                     <Range value={rangeValue} min={1} max={100} onChangeRange={onChangeRange} />
                     <div>{rangeValue}</div>
+                    <h2>Lesson 11 - DoubleRange</h2>
+                    <DoubleRange/>
                 </div>
             </div>
         </div>
