@@ -12,6 +12,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {AppRootStateType} from '../../redux/store';
 import {InitialStateType, setLoading} from '../../redux/loadingReducer';
 import Preloader from '../../assets/preloader/Preloader';
+import {Range} from '../../common/range/Range';
 
 export const Junior = () => {
 
@@ -134,6 +135,10 @@ export const Junior = () => {
                     <h2>Lesson 10 - PRELOADER</h2>
                     <MyButton title={'Change Loader'} type={'default'} onClickHandler={toggleLoader}/>
                 </div>
+                {/*<div className={styles.less10}>*/}
+                {/*    <h2>Lesson 11 - Range</h2>*/}
+                {/*    <Range />*/}
+                {/*</div>*/}
             </div>
         </div>
     );
