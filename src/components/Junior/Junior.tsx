@@ -1,4 +1,4 @@
-import React, {useState, useReducer} from 'react';
+import React, {useState, useReducer, useCallback} from 'react';
 import styles from './Junior.module.css'
 import {EditableSpan} from '../../common/editableSpan/EditableSpan';
 import {saveState, restoreState} from '../../settings/localStorage/localStorage';
@@ -19,25 +19,25 @@ export const Junior = () => {
     //redux
     const dispatch = useDispatch();
     const loader = useSelector<AppRootStateType, InitialStateType>(state => state.loading);
-    console.log(loader.loading)
 
     //less6 - editableSpan
     const [valueES, setValueES] = useState<string>('Lesson 6 editableSpam');
 
-    const onChangeValueES = (newValue: string) => {
+    const onChangeValueES = useCallback((newValue: string) => {
         setValueES(newValue);
-    }
+    },[])
     //less6 - localStorage
     const [valueLS, setValueLS] = useState<string>('Lesson 6 localStorage');
 
-    type StateType = { valueLS: string }
-    const addToLocalStorage = () => {
+    type StateType = { valueLS: string };
+
+    const addToLocalStorage =useCallback( () => {
         saveState<StateType>('test', {valueLS});
-    }
-    const restoreFromLocalStorage = () => {
+    },[valueLS])
+    const restoreFromLocalStorage =useCallback( () => {
         const state: StateType = restoreState<StateType>("test", {valueLS: 'Lesson 6 example'});
         setValueLS(state.valueLS);
-    }
+    },[])
 
 
     //less 7
@@ -49,9 +49,9 @@ export const Junior = () => {
         "Jora",
         "Anyfriy",
     ]
-    const onChangeSelect = (value: string) => {
+    const onChangeSelect = useCallback((value: string) => {
         setSelectValue(value);
-    }
+    },[])
     //radio
     const [CheckedValue, setCheckedValue] = useState<string>("2");
     const radioItems: RadioItemType[] = [
@@ -71,9 +71,9 @@ export const Junior = () => {
             id: 'radio-3'
         },
     ];
-    const onChangeChecked = (value: string) => {
+    const onChangeChecked = useCallback((value: string) => {
         setCheckedValue(value);
-    }
+    },[]);
     //lesson8
     let [people, dispatchToPeople] = useReducer(hwReducer, [
         {name: 'Alex', age: 32, id: '1'},
@@ -83,22 +83,31 @@ export const Junior = () => {
         {name: 'Tanya', age: 35, id: '5'},
     ]);
 
-    const sortArray = (payload: 'up' | 'down') => {
+    const sortArray = useCallback((payload: 'up' | 'down') => {
         dispatchToPeople(sort(payload));
-    }
-    const sortByAge = (age: number) => {
+    },[]);
+    const sortByAge =useCallback((age: number) => {
         dispatchToPeople(check(age));
-    }
+    },[]);
     //10
-    const toggleLoader = () => {
+    const toggleLoader = useCallback(() => {
         dispatch(setLoading(true));
         setTimeout(() => {
             dispatch(setLoading(false))
         }, 3000)
-    }
+    },[dispatch]);
+    //lesson 11
+    const [rangeValue, setRangeValue] = useState<string>('1');
+    // console.log(rangeValue);
+
+    const onChangeRange = useCallback((value:string) => {
+        setRangeValue(value);
+    }, [])
+
     if (loader.loading) {
         return <Preloader/>
     }
+
     return (
         <div className={styles.JuniorBlock}>
             <h2>Junior</h2>
@@ -135,10 +144,11 @@ export const Junior = () => {
                     <h2>Lesson 10 - PRELOADER</h2>
                     <MyButton title={'Change Loader'} type={'default'} onClickHandler={toggleLoader}/>
                 </div>
-                {/*<div className={styles.less10}>*/}
-                {/*    <h2>Lesson 11 - Range</h2>*/}
-                {/*    <Range />*/}
-                {/*</div>*/}
+                <div className={styles.less11}>
+                    <h2>Lesson 11 - Range</h2>
+                    <Range value={rangeValue} min={1} max={100} onChangeRange={onChangeRange} />
+                    <div>{rangeValue}</div>
+                </div>
             </div>
         </div>
     );

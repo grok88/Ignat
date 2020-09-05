@@ -6,7 +6,7 @@ type MyCheckBoxPropsType = {
     onChange: (isCheck: boolean) => void;
     customLabel:string;
 }
-export const MyCheckBox = (props: MyCheckBoxPropsType) => {
+export const MyCheckBox = React.memo((props: MyCheckBoxPropsType) => {
     const {check, onChange,customLabel} = props;
     return (
         <div className={styles.cntr}>
@@ -23,4 +23,4 @@ export const MyCheckBox = (props: MyCheckBoxPropsType) => {
             </label>
          </div>
     );
-}
+})

@@ -7,7 +7,7 @@ type MyInputPropsType = {
     onKeyPress: (value: number) => void;
     error?: boolean;
 }
-export const MyInput = (props: MyInputPropsType) => {
+export const MyInput = React.memo((props: MyInputPropsType) => {
     const {value, onChange, onKeyPress, error} = props;
     return (
         <div className={styles.group}>
@@ -23,4 +23,4 @@ export const MyInput = (props: MyInputPropsType) => {
             <label className={styles.label}>Name</label>
         </div>
     );
-}
+})

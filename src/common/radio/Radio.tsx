@@ -13,7 +13,7 @@ type RadioPropsType = {
     onChange: (value: string) => void;
 }
 
-export const Radio = (props: RadioPropsType) => {
+export const Radio = React.memo((props: RadioPropsType) => {
     const {items, name, value,onChange} = props;
     return (
         <div>
@@ -30,4 +30,4 @@ export const Radio = (props: RadioPropsType) => {
             }
         </div>
     );
-}
+})

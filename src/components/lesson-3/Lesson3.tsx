@@ -1,4 +1,4 @@
-import React, {useState, ChangeEvent, KeyboardEvent} from 'react';
+import React, {useState, ChangeEvent, KeyboardEvent, useCallback} from 'react';
 import {v1} from 'uuid';
 import {MyButton} from '../../common/button/MyButton';
 import { MyInput } from '../../common/input/MyInput';
@@ -29,11 +29,11 @@ const Lesson3 = () => {
         arr.push(newItem);
         setCount(count => count + 1);
     }
-    const onKeyPressHandler = (keyNumber: number) => {
+    const onKeyPressHandler = useCallback((keyNumber: number) => {
         if (keyNumber === 13) {
             sayName();
         }
-    }
+    },[])
     return (
         <div>
             <h2>Lesson3</h2>

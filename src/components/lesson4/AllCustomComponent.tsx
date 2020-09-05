@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useCallback} from 'react';
 import {MyCheckBox} from '../../common/checkbox/MyCheckBox';
 import {MyInput} from '../../common/input/MyInput';
 import {MyButton} from '../../common/button/MyButton';
@@ -6,9 +6,10 @@ import {MyButton} from '../../common/button/MyButton';
 export const AllCustomComponent = () => {
     //checkbox
     const [check, setCheck] = useState<boolean>(false);
-    const setCheckValue = (value: boolean) => {
+
+    const setCheckValue = useCallback((value: boolean) => {
         setCheck(value);
-    }
+    },[]);
 
     //input
     let [value, setValue] = useState<string>('');

@@ -49,7 +49,7 @@ export const MyTime = () => {
         <div className={styles.AppClock}>
             {display && <span className={styles.eav_Date}>
                 <div className={styles.d}>{time.getDate()}</div>
-                <div className={styles.m}>{time.getMonth()}</div>
+                <div className={styles.m}>{time.getMonth() +1}</div>
                 <div className={styles.y}>{time.getFullYear()}</div>
                     </span>
             }

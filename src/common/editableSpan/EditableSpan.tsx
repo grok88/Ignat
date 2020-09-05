@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useCallback} from 'react';
 import styles from './EditableSpan.module.css';
 import {MyInput} from '../input/MyInput'
 
@@ -15,17 +15,16 @@ export const EditableSpan = (props: EditableSpanPropsType) => {
     const activateEditMode = () => {
         setEditMode(true);
     }
-    const onKeyPressHandler = (charcode: number) => {
-        console.log(charcode);
+    const onKeyPressHandler = useCallback((charcode: number) => {
         if (charcode === 13) {
             if (value) {
                 setEditMode(false);
             } else {
                 alert('Empty string');
             }
-
         }
-    }
+    },[]);
+
     return (
         editMode
             ? <MyInput value={value} onChange={onChange} onKeyPress={onKeyPressHandler}/>
