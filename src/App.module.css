@@ -1,11 +1,7 @@
 body{
     background-color: goldenrod;
-    padding-left: 30px;
+    /*padding-left: 30px;*/
+    padding: 0;
 
 }
 
-.app{
-    background-color: goldenrod;
-    padding: 10px;
-
-}

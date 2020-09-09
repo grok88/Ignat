@@ -1,0 +1,18 @@
+.JuniorPlusBlock{
+    /*background-color: red;*/
+    min-height: 100vh;
+    padding-left: 40px;
+}
+.light{
+    background-color: goldenrod;
+}
+.dark {
+    background-color: black;
+    color: white;
+}
+.green{
+    background-color: green;
+}
+.title{
+    margin-top: 0;
+}

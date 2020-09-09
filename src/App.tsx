@@ -3,7 +3,7 @@ import styles from './App.module.css';
 import {HashRouter, Route} from 'react-router-dom';
 import {PreJunior} from './components/preJunior/PreJunior';
 import {Junior} from './components/Junior/Junior';
-import {JuniorHard} from './components/Junior+/Junior+';
+import {JuniorPlus} from './components/Junior+/JuniorPlus';
 import {Navbar} from './components/navbar/Navbar';
 
 //TS
@@ -25,7 +25,7 @@ function App() {
                     {/*<Route exact path={'/'} render={() => <Main/>}/>*/}
                     <Route path={'/prejunior'} render={() => <PreJunior/>}/>
                     <Route path={'/junior'} render={() => <Junior/>}/>
-                    <Route path={'/junior+'} render={() => <JuniorHard/>}/>
+                    <Route path={'/junior+'} render={() => <JuniorPlus/>}/>
                 </div>
             </main>
         </HashRouter>
